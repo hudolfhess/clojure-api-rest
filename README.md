@@ -26,3 +26,22 @@ After download this repository, open `clojure-api-rest` and run `lein ring serve
   - [ ] PUT/:id - Edit something
   - [ ] DELETE/:id - Delete Something
  - [ ] Config Datomic
+
+## Database
+
+Create database
+
+```sql
+create database clojure_api_rest; 
+```
+
+Create table `product`
+
+```sql
+CREATE TABLE `product` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `name` varchar(55) NOT NULL,
+ `description` text NOT NULL,
+ PRIMARY KEY (`id`)
+)
+```
