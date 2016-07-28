@@ -20,9 +20,9 @@ After download this repository, open `clojure-api-rest` and run `lein ring serve
  - [X] Create a sample route
  - [X] Config a database connection (MySQL)
  - [ ] Making routes (using database)
-  - [ ] GET /product/ - Return a json with list of products
-  - [ ] GET /product/:id - Return product by id
-  - [ ] POST /product/ - Insert new product
+  - [X] GET /product/ - Return a json with list of products
+  - [X] GET /product/:id - Return product by id
+  - [X] POST /product/ - Insert new product
   - [ ] PUT /product/:id - Edit product by id
   - [ ] DELETE /product/:id - Delete product by id
  - [ ] Config Datomic

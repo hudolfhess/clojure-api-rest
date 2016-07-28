@@ -9,9 +9,18 @@
                :serverTimezone "America/Sao_Paulo"})
 
 (defresource product []
-  :allowed-methods [:get :post]
+  :allowed-methods [:get]
   :available-media-types ["application/json"]
   :handle-ok (j/query mysql-db ["select * from product"]))
+
+(defresource post-product []
+  :allowed-methods [:post]
+  :available-media-types ["application/json"]
+  :post! (fn [context] (
+      let [params (get-in context [:request :params])]
+      (j/insert! mysql-db :product params)
+    ))
+  :handle-created [{:success true}])
 
 (defresource product-handler [product-id]
   :allowed-methods [:get :put :delete]
