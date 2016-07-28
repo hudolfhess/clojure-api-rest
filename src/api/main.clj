@@ -8,6 +8,7 @@
   :handle-ok (fn [_] (format "The text is %s" txt)))
 
 (defresource main []
+  :allowed-methods [:get]
   :available-media-types ["text/plain"]
   :handle-ok "Clojure API Rest")
 
