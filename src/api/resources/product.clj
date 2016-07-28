@@ -1,29 +1,23 @@
-(ns api.resources
+(ns api.resources.product
   (:require [liberator.core :refer [resource defresource]]
-            [clojure.java.jdbc :as j]))
-
-(def mysql-db {:subprotocol "mysql"
-               :subname "//localhost:3306/clojure_api_rest"
-               :user "root"
-               :password "password"
-               :serverTimezone "America/Sao_Paulo"})
+            [gateways.product-mysql :as product-gateway]))
 
 (defresource product-list []
   :allowed-methods [:get]
   :available-media-types ["application/json"]
-  :handle-ok (j/query mysql-db ["select * from product"]))
+  :handle-ok (product-gateway/get-all-products))
 
 (defresource product-get [product-id]
   :allowed-methods [:get]
   :available-media-types ["application/json"]
-  :handle-ok (fn [_] (j/query mysql-db [(format "select * from product where id = %s" product-id)])))
+  :handle-ok (product-gateway/get-product-by-id product-id))
 
 (defresource product-create []
   :allowed-methods [:post]
   :available-media-types ["application/json"]
   :post! (fn [context] (
       let [params (get-in context [:request :params])]
-      (j/insert! mysql-db :product params)
+      (product-gateway/insert-product params)
     ))
   :handle-created [{:success true}])
 
@@ -32,13 +26,13 @@
   :available-media-types ["application/json"]
   :put! (fn [context] (
       let [params (get-in context [:request :params])]
-      (j/update! mysql-db :product params ["id = ?" product-id])
+      (product-gateway/update-product product-id params)
     ))
   :handle-created [{:success true :product product-id}])
 
 (defresource product-delete [product-id]
   :allowed-methods [:delete]
   :available-media-types ["application/json"]
-  :delete! (j/delete! mysql-db :product ["id = ?" product-id])
+  :delete! (product-gateway/delete-product product-id)
   :respond-with-entity? true
   :handle-ok [{:success true :product product-id}])
