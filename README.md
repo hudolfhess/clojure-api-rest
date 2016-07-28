@@ -20,7 +20,7 @@ After download this repository, open `clojure-api-rest` and run `lein ring serve
  - [X] Create a sample route
  - [X] Config a database connection (MySQL)
  - [ ] Making routes (using database)
-  - [ ] GET /product/ - Retuns a json with list of products
+  - [ ] GET /product/ - Return a json with list of products
   - [ ] GET /product/:id - Return product by id
   - [ ] POST /product/ - Insert new product
   - [ ] PUT /product/:id - Edit product by id
