@@ -8,12 +8,17 @@
                :password "password"
                :serverTimezone "America/Sao_Paulo"})
 
-(defresource product []
+(defresource product-list []
   :allowed-methods [:get]
   :available-media-types ["application/json"]
   :handle-ok (j/query mysql-db ["select * from product"]))
 
-(defresource post-product []
+(defresource product-get [product-id]
+  :allowed-methods [:get]
+  :available-media-types ["application/json"]
+  :handle-ok (fn [_] (j/query mysql-db [(format "select * from product where id = %s" product-id)])))
+
+(defresource product-create []
   :allowed-methods [:post]
   :available-media-types ["application/json"]
   :post! (fn [context] (
@@ -22,7 +27,11 @@
     ))
   :handle-created [{:success true}])
 
-(defresource product-handler [product-id]
-  :allowed-methods [:get :put :delete]
+(defresource product-edit [product-id]
+  :allowed-methods [:put]
   :available-media-types ["application/json"]
-  :handle-ok (fn [_] (j/query mysql-db [(format "select * from product where id = %s" product-id)])))
+  :put! (fn [context] (
+      let [params (get-in context [:request :params])]
+      (j/update! mysql-db :product params ["id = ?" product-id])
+    ))
+  :handle-created [{:success true :product product-id}])

@@ -23,8 +23,10 @@ After download this repository, open `clojure-api-rest` and run `lein ring serve
   - [X] GET /product/ - Return a json with list of products
   - [X] GET /product/:id - Return product by id
   - [X] POST /product/ - Insert new product
-  - [ ] PUT /product/:id - Edit product by id
+  - [X] PUT /product/:id - Edit product by id
   - [ ] DELETE /product/:id - Delete product by id
+ - [ ] Create ProductGateway and tests
+ - [ ] Resource tests (? controller test)
  - [ ] Config Datomic
 
 ## Database

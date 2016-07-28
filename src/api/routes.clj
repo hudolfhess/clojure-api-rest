@@ -1,9 +1,10 @@
 (ns api.routes
-  (:require [compojure.core :refer [defroutes ANY GET POST]]
+  (:require [compojure.core :refer [defroutes GET POST PUT]]
             [api.resources :as r]))
 
 (defroutes product
-  (GET "/product/" [] (r/product))
-  (POST "/product/" [] (r/post-product))
-  (ANY "/product/:id" [id] (r/product-handler id))
+  (GET "/product/" [] (r/product-list))
+  (GET "/product/:id" [id] (r/product-get id))
+  (POST "/product/" [] (r/product-create))
+  (PUT "/product/:id" [id] (r/product-edit id))
 )
