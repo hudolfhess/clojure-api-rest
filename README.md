@@ -24,5 +24,5 @@ After download this repository, open `clojure-api-rest` and run `lein ring serve
   - [ ] GET/:id - Return something by id
   - [ ] POST - Insert something
   - [ ] PUT/:id - Edit something
-  - [ ] DELETE/:id - Edit Something
+  - [ ] DELETE/:id - Delete Something
  - [ ] Config Datomic
