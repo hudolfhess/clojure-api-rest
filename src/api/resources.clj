@@ -36,7 +36,6 @@
     ))
   :handle-created [{:success true :product product-id}])
 
-
 (defresource product-delete [product-id]
   :allowed-methods [:delete]
   :available-media-types ["application/json"]
