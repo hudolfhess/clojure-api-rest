@@ -6,6 +6,8 @@
                  [liberator "0.14.1"]
                  [compojure "1.3.4"]
                  [ring/ring-core "1.4.0"]
-                 [ring/ring-servlet "1.2.0-RC1"]]
+                 [ring/ring-servlet "1.2.0-RC1"]
+                 [org.clojure/java.jdbc "0.6.2-alpha2"]
+                 [mysql/mysql-connector-java "6.0.3"]]
   :ring {:handler api.main/handler}
 )
