@@ -13,4 +13,4 @@ $ chmod +x lein
 $ sudo mv lein /usr/local/bin
 ```
 
-After download this repository, open `clojure-api-rest` and run `lein run`.
+After download this repository, open `clojure-api-rest` and run `lein ring server`.
