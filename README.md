@@ -18,13 +18,13 @@ After download this repository, open `clojure-api-rest` and run `lein ring serve
 ## TO DO List
  - [X] Config HTTP server
  - [X] Create a sample route
- - [ ] Config a database connection (MySQL)
+ - [X] Config a database connection (MySQL)
  - [ ] Making routes (using database)
-  - [ ] GET - Retuns a json with list of something
-  - [ ] GET/:id - Return something by id
-  - [ ] POST - Insert something
-  - [ ] PUT/:id - Edit something
-  - [ ] DELETE/:id - Delete Something
+  - [ ] GET /product/ - Retuns a json with list of products
+  - [ ] GET /product/:id - Return product by id
+  - [ ] POST /product/ - Insert new product
+  - [ ] PUT /product/:id - Edit product by id
+  - [ ] DELETE /product/:id - Delete product by id
  - [ ] Config Datomic
 
 ## Database
@@ -32,7 +32,7 @@ After download this repository, open `clojure-api-rest` and run `lein ring serve
 Create database
 
 ```sql
-create database clojure_api_rest; 
+create database clojure_api_rest;
 ```
 
 Create table `product`
@@ -43,5 +43,5 @@ CREATE TABLE `product` (
  `name` varchar(55) NOT NULL,
  `description` text NOT NULL,
  PRIMARY KEY (`id`)
-)
+);
 ```
