@@ -19,12 +19,18 @@ After download this repository, open `clojure-api-rest` and run `lein ring serve
  - [X] Config HTTP server
  - [X] Create a sample route
  - [X] Config a database connection (MySQL)
- - [ ] Making routes (using database)
+ - [X] Making routes (using database)
   - [X] GET /product/ - Return a json with list of products
   - [X] GET /product/:id - Return product by id
   - [X] POST /product/ - Insert new product
   - [X] PUT /product/:id - Edit product by id
-  - [ ] DELETE /product/:id - Delete product by id
+  - [X] DELETE /product/:id - Delete product by id
+ - [ ] Validation of params (Form Validation)
+  - [ ] Verify is valid ID
+  - [ ] Verify POST/PUT data
+  - [ ] Verify if product exists before delete
+  - [ ] Verify if product exists before update
+  - [ ] Show error message with correct status when product does not exists
  - [ ] Create ProductGateway and tests
  - [ ] Resource tests (? controller test)
  - [ ] Config Datomic

@@ -35,3 +35,11 @@
       (j/update! mysql-db :product params ["id = ?" product-id])
     ))
   :handle-created [{:success true :product product-id}])
+
+
+(defresource product-delete [product-id]
+  :allowed-methods [:delete]
+  :available-media-types ["application/json"]
+  :delete! (j/delete! mysql-db :product ["id = ?" product-id])
+  :respond-with-entity? true
+  :handle-ok [{:success true :product product-id}])
