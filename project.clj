@@ -1,6 +1,7 @@
 (defproject clojre-api-rest "1.0.0-SNAPSHOT"
   :description "FIXME: write description"
-  :plugins [[lein-ring "0.8.11"]]
+  :plugins [[lein-ring "0.8.11"]
+            [lein-midje "3.1.3"]]
   :repositories {"my.datomic.com" {:url "https://my.datomic.com/repo"
                                    :creds :gpg}}
   :min-lein-version "2.0.0"
@@ -13,4 +14,4 @@
                  [mysql/mysql-connector-java "6.0.3"]
                  [com.datomic/datomic-pro "0.9.5350"]]
   :ring {:handler api.main/handler}
-)
+  :profiles {:dev {:dependencies [[midje "1.6.3"]]}})
