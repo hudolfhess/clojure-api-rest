@@ -12,6 +12,7 @@
                  [ring/ring-servlet "1.2.0-RC1"]
                  [org.clojure/java.jdbc "0.6.2-alpha2"]
                  [mysql/mysql-connector-java "6.0.3"]
-                 [com.datomic/datomic-pro "0.9.5350"]]
+                 [com.datomic/datomic-pro "0.9.5350"]
+                 [prismatic/schema "1.1.3"]]
   :ring {:handler api.main/handler}
   :profiles {:dev {:dependencies [[midje "1.6.3"]]}})

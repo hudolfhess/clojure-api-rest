@@ -1,0 +1,3 @@
+(apply hash-map [["name" "Test"] ["description" "Super description"]])
+(apply hash-map ["description" "Super description"])
+exit()
