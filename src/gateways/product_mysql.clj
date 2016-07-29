@@ -7,7 +7,7 @@
   (let [product (j/query database/mysql [(format "select * from product where id = %s" product-id)])]
   (if (= product [])
   (throw (Exception. (core-exceptions/product-does-not-exists product-id)))
-  product)))
+  (first product))))
 
 (defn get-all-products []
   (j/query database/mysql ["select * from product"]))
