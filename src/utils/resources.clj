@@ -6,5 +6,4 @@
     (validator params)
     false)
   (catch Exception e
-    true
-    )))
+    true)))
