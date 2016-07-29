@@ -31,7 +31,9 @@ After download this repository, open `clojure-api-rest` and run `lein ring serve
   - [ ] Verify if product exists before delete
   - [ ] Verify if product exists before update
   - [ ] Show error message with correct status when product does not exists
- - [ ] Create ProductGateway and tests
+ - [X] Create gateway product
+ - [ ] Test gateway product
+ - [ ] Config database test
  - [ ] Resource tests (? controller test)
  - [ ] Config Datomic
 
