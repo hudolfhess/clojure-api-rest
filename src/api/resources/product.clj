@@ -10,7 +10,10 @@
 (defresource product-get [product-id]
   :allowed-methods [:get]
   :available-media-types ["application/json"]
-  :handle-ok (product-gateway/get-product-by-id product-id))
+  ;; http-status not correct when returns error message
+  :handle-ok (try
+    (product-gateway/get-product-by-id product-id)
+  (catch Exception e {:error (.getMessage e)})))
 
 (defresource product-create []
   :allowed-methods [:post]
