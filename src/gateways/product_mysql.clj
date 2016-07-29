@@ -1,9 +1,13 @@
 (ns gateways.product-mysql
   (:require [clojure.java.jdbc :as j]
-            [config.database :as database]))
+            [config.database :as database]
+            [core.exceptions :as core-exceptions]))
 
 (defn get-product-by-id [product-id]
-  (j/query database/mysql [(format "select * from product where id = %s" product-id)]))
+  (let [product (j/query database/mysql [(format "select * from product where id = %s" product-id)])]
+  (if (= product [])
+  (throw (Exception. (core-exceptions/product-does-not-exists product-id)))
+  product)))
 
 (defn get-all-products []
   (j/query database/mysql ["select * from product"]))
